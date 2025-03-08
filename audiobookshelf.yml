@@ -4,10 +4,10 @@ services:
     ports:
       - 13378:80
     volumes:
-      - /data/audiobooks:/audiobooks
-      - /data/podcasts:/podcasts
-      - /data/metadata:/metadata
-      - /data/config:/config
+      - /data/compose/9/audiobookshelf_data:/audiobooks
+      - /data/compose/9/audiobookshelf_data:/podcasts
+      - /data/compose/9/audiobookshelf_data:/metadata
+      - /data/compose/9/audiobookshelf_data:/config
     restart: unless-stopped
 networks:
   nginxpm:
