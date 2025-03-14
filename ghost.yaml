@@ -12,7 +12,7 @@ services:
       - database__connection__database=ghost # Set the database name
       - url=http://69.48.163.129:2368 # Set the base URL for the Ghost application
     volumes:
-      - ghost_data:/var/lib/ghost/content # Mount a volume for persistent content storage
+      - ghost-content:/var/lib/ghost/content # Mount a volume for persistent content storage
     ports:
       - "2368:2368" # Map port 2368 from the host to port 2368 in the container
     depends_on:
@@ -30,5 +30,5 @@ services:
       - MYSQL_ROOT_PASSWORD=portainer # Set the MySQL root password
 
 volumes:
-  ghost_data: # Define a named volume for Ghost content
+  ghost-content: # Define a named volume for Ghost content
   mysql-data: # Define a named volume for MySQL data
