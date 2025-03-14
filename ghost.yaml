@@ -10,7 +10,7 @@ services:
       - database__connection__user=ghost # Set the database user
       - database__connection__password=portainer # Set the database password
       - database__connection__database=ghost # Set the database name
-      - url=http://69.48.163.129:2368 # Set the base URL for the Ghost application
+      - url=http://[YOUR_IP]:2368 # Set the base URL for the Ghost application
     volumes:
       - ghost-content:/var/lib/ghost/content # Mount a volume for persistent content storage
     ports:
