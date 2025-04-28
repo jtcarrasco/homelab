@@ -1,0 +1,48 @@
+services:
+  db:
+    image: postgres:16
+    container_name: Joplin-DB
+    hostname: joplin-db
+    mem_limit: 1g
+    cpu_shares: 1024
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "pg_isready", "-q", "-d", "joplin", "-U", "joplinuser"]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    volumes:
+      - /volume1/docker/joplin:/var/lib/postgresql/data:rw
+    environment:
+      POSTGRES_DB: joplin
+      POSTGRES_USER: joplinuser
+      POSTGRES_PASSWORD: joplinpass
+    restart: on-failure:5
+
+  joplin:
+    image: joplin/server:latest
+    container_name: Joplin
+    depends_on:
+      - db
+    ports:
+      - 22300:22300
+    restart: on-failure:5
+    environment:
+     APP_PORT: 22300
+     APP_BASE_URL: https://joplin.yourname.synology.me
+     DB_CLIENT: pg
+     POSTGRES_PASSWORD: joplinpass
+     POSTGRES_DATABASE: joplin
+     POSTGRES_USER: joplinuser
+     POSTGRES_PORT: 5432
+     POSTGRES_HOST: db
+     MAX_TIME_DRIFT: 0
+     MAILER_ENABLED: 1
+     MAILER_HOST: smtp.gmail.com
+     MAILER_PORT: 587
+     MAILER_SECURITY: starttls
+     MAILER_AUTH_USER: Your-own-gmail-address
+     MAILER_AUTH_PASSWORD: Your-own-app-password
+     MAILER_NOREPLY_NAME: Your-own-gmail-address
+     MAILER_NOREPLY_EMAIL: Your-own-gmail-address
