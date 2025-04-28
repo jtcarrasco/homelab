@@ -1,0 +1,74 @@
+theme:
+  background-color: 240 21 15
+  contrast-multiplier: 1.2
+  primary-color: 217 92 83
+  positive-color: 115 54 76
+  negative-color: 347 70 65
+pages:
+  - name: Home
+    columns:
+      - size: small
+        widgets:
+          - type: calendar
+            first-day-of-week: monday
+          - type: rss
+            limit: 10
+            collapse-after: 3
+            cache: 3h
+            feeds:
+              - url: https://ciechanow.ski/atom.xml
+              - url: https://www.joshwcomeau.com/rss.xml
+                title: Josh Comeau
+              - url: https://samwho.dev/rss.xml
+              - url: https://awesomekling.github.io/feed.xml
+              - url: https://ishadeed.com/feed.xml
+                title: Ahmad Shadeed
+
+          - type: twitch-channels
+            channels:
+              - theprimeagen
+              - cohhcarnage
+              - christitustech
+              - blurbs
+              - asmongold
+              - jembawls
+
+      - size: full
+        widgets:
+          - type: search
+            search-engine: duckduckgo
+            bangs:
+                - title: YouTube
+                  shortcut: "!yt"
+                  url: https://www.youtube.com/results?search_query={QUERY}
+                  new-tab: true
+          - type: hacker-news
+
+          - type: videos
+            channels:
+              - UCXJ4jKAvMMg56WGhqrZHFgw # Techdox
+
+          - type: reddit
+            subreddit: selfhosted
+
+      - size: small
+        widgets:
+          - type: weather
+            location: Christchurch, New Zealand
+
+          - type: markets
+            markets:
+              - symbol: SPY
+                name: S&P 500
+              - symbol: BTC-USD
+                name: Bitcoin
+              - symbol: NVDA
+                name: NVIDIA
+              - symbol: AAPL
+                name: Apple
+              - symbol: MSFT
+                name: Microsoft
+              - symbol: GOOGL
+                name: Google
+              - symbol: AMD
+                name: AMD
