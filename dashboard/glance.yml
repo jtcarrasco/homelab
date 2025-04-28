@@ -1,3 +1,9 @@
+theme:
+  background-color: 240 21 15
+  contrast-multiplier: 1.2
+  primary-color: 217 92 83
+  positive-color: 115 54 76
+  negative-color: 347 70 65
 pages:
   - name: Home
     columns:
@@ -17,45 +23,63 @@ pages:
               - url: https://awesomekling.github.io/feed.xml
               - url: https://ishadeed.com/feed.xml
                 title: Ahmad Shadeed
-
-          - type: twitch-channels
-            channels:
-              - theprimeagen
-              - cohhcarnage
-              - christitustech
-              - blurbs
-              - asmongold
-              - jembawls
-
       - size: full
         widgets:
           - type: hacker-news
 
-          - type: videos
-            channels:
-              - UCXJ4jKAvMMg56WGhqrZHFgw # Techdox
-
-          - type: reddit
-            subreddit: selfhosted
+          - type: search
+	          autofocus: true
+	        - type: bookmarks
+	          groups:
+	            - title: General
+	              links:
+	                - title: Gmail
+	                  url: https://mail.google.com/mail/u/0/
+	                - title: Amazon
+	                  url: https://www.amazon.com/
+	                - title: Github
+	                  url: https://github.com/
+	            - title: Entertainment
+	              links:
+	                - title: YouTube
+	                  url: https://www.youtube.com/
+	                - title: Prime Video
+	                  url: https://www.primevideo.com/
+	                - title: Disney+
+	                  url: https://www.disneyplus.com/
+	            - title: Social
+	              links:
+	                - title: Reddit
+	                  url: https://www.reddit.com/
+	                - title: Twitter
+	                  url: https://twitter.com/
+	                - title: Instagram
+	                  url: https://www.instagram.com/
 
       - size: small
         widgets:
           - type: weather
-            location: Christchurch, New Zealand
-
-          - type: markets
-            markets:
-              - symbol: SPY
-                name: S&P 500
-              - symbol: BTC-USD
-                name: Bitcoin
-              - symbol: NVDA
-                name: NVIDIA
-              - symbol: AAPL
-                name: Apple
-              - symbol: MSFT
-                name: Microsoft
-              - symbol: GOOGL
-                name: Google
-              - symbol: AMD
-                name: AMD
+        	  units: imperial
+            location: Redondo Beach, California, United States
+	        - type: monitor
+	          cache: 1m
+	          title: Services
+	          sites:
+	            - title: Jellyfin
+	              url: https://plex.joesgarage.synology.me/
+	              icon: si:jellyfin
+	            - title: Gitea
+	              url: https://plex.joesgarage.synology.me/
+	              icon: si:gitea
+	            - title: qBittorrent # only for Linux ISOs, of course
+	              url: https://plex.joesgarage.synology.me/
+	              icon: si:qbittorrent
+	            - title: Immich
+	              url: https://plex.joesgarage.synology.me/
+	              icon: si:immich
+	            - title: AdGuard Home
+	              url: https://plex.joesgarage.synology.me/
+	              icon: si:adguard
+	            - title: Vaultwarden
+	              url: https://plex.joesgarage.synology.me/
+	              icon: si:vaultwarden
