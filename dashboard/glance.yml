@@ -46,9 +46,6 @@ pages:
                     - title: Resumes
                       url: [YOUR URL]
                       icon: si:reactiveresume
-                    - title: Hugging Face
-                      url: https://huggingface.co/     
-                      icon: si:huggingface
 
       - size: full
         widgets:
