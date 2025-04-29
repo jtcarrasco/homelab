@@ -58,23 +58,9 @@ pages:
               - title: Github
                 shortcut: "!gh"
                 url: https://github.com/search?q={QUERY}&type=repositories
-								
-          #- type: group
-          #  widgets:
-          #    - type: rss
-          #      title: "New York Times"
-          #      style: horizontal-cards
-          #      feeds:
-          #      -  url: "https://rss.nytimes.com/services/xml/rss/nyt/US.xml"
-          #         title: US News
-          #      -  url: "https://rss.nytimes.com/services/xml/rss/nyt/Climate.xml"
-          #         title: Environment
-          #      -  url: "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml"
-          #         title: Technology     
-
           - type: videos
             channels:
-              - UCXJ4jKAvMMg56WGhqrZHFgw # Techdox
+              - UCXJ4jKAvMMg56WGhqrZHFgw
 
           - type: custom-api
             title: Todoist Tasks
