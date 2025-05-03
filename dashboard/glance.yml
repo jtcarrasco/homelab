@@ -26,6 +26,9 @@ pages:
                 url: https://www.youtube.com/
               - title: Reddit
                 url: https://www.reddit.com/
+              - title: Translate
+                shortcut: "!t"
+                url: https://translate.google.com/?sl=en&tl=fr&text={QUERY}&op=translate
           - title: Personal
             color: 10 70 50
             - links:
