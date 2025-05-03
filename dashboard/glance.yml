@@ -7,77 +7,75 @@ theme:
 pages:
   - name: Home
     columns:
-    - size: small
-      widgets:
-      - type: calendar
-      - type: bookmarks
-        groups:
-          - title: Skyrocket
-            color: 10 70 50
-          - links:
-            - title: Wikipedia
-              url: https://en.wikipedia.org/
-              - title: Hoarder
-                url: http://192.168.1.124:3030/
-          - title: Dev
-            color: 10 70 50
-          - links:
-            - title: YouTube
-              url: https://www.youtube.com/
-            - title: Reddit
-              url: https://www.reddit.com/
-          - title: Personal
-            color: 10 70 50
-          - links:
-            - title: Blog
-              url: https://github.com/
-              icon: si:medium
-            - title: Github
-              url: https://github.com/
-              icon: si:github
-            - title: Linkedin
-              url: https://www.linkedin.com/in/
-              icon: si:lerna
-            - title: Personal Site
-              url: https://github.com/
-              icon: si:readme
-            - title: Resumes
-              url: https://github.com/
-              icon: si:reactiveresume
+      - size: small
+        widgets:
+          - type: calendar
+          - type: bookmarks
+            groups:
+              - title: Skyrocket
+                color: 10 70 50
+                - links:
+                  - title: Wikipedia
+                    url: https://en.wikipedia.org/
+                  - title: Hoarder
+                    url: http://192.168.1.124:3030/
+              - title: Dev
+                color: 10 70 50
+                - links:
+                  - title: YouTube
+                    url: https://www.youtube.com/
+                  - title: Reddit
+                    url: https://www.reddit.com/
+              - title: Personal
+                color: 10 70 50
+                - links:
+                  - title: Blog
+                    url: https://github.com/
+                    icon: si:medium
+                  - title: Github
+                    url: https://github.com/
+                    icon: si:github
+                  - title: Linkedin
+                    url: https://www.linkedin.com/in/
+                    icon: si:lerna
+                  - title: Personal Site
+                    url: https://github.com/
+                    icon: si:readme
+                  - title: Resumes
+                    url: https://github.com/
+                    icon: si:reactiveresume
 
-    - size: full
-      widgets:
-        - type: search
-          search-engine: duckduckgo
-          bangs:
-            - title: YouTube
-              shortcut: "!yt"
-              url: https://www.youtube.com/results?search_query={QUERY}
-            - title: Github
-              shortcut: "!gh"
-              url: https://github.com/search?q={QUERY}&type=repositories
-            - title: Translate
-              shortcut: "!t"
-              url: https://translate.google.com/?sl=en&tl=fr&text={QUERY}&op=translate
+      - size: full
+        widgets:
+          - type: search
+            search-engine: duckduckgo
+            bangs:
+              - title: YouTube
+                shortcut: "!yt"
+                url: https://www.youtube.com/results?search_query={QUERY}
+              - title: Github
+                shortcut: "!gh"
+                url: https://github.com/search?q={QUERY}&type=repositories
+              - title: Translate
+                shortcut: "!t"
+                url: https://translate.google.com/?sl=en&tl=fr&text={QUERY}&op=translate
+          - type: videos
+            channels:
+              - UCXJ4jKAvMMg56WGhqrZHFgw
 
-        - type: videos
-          channels:
-            - UCXJ4jKAvMMg56WGhqrZHFgw
-
-    - size: small
-      widgets:
-        - type: weather
-          location: Los Angeles, California, United States
-
-        - type: monitor
-          cache: 1m
-          title: JoesGarage
-          sites:
-            - title: Plex
-              url: https://plex.joesgarage.synology.me
-            - title: joplin
-              url: https://joplin.joesgarage.synology.me
-            - title: mealie
-              url: https://meal.joesgarage.synology.me
-            - title: freshRSS
-              url: https://rss.joesgarage.synology.me
+      - size: small
+        widgets:
+          - type: weather
+            location: Los Angeles, California, United States
+          - type: monitor
+            cache: 1m
+            title: JoesGarage
+            sites:
+              - title: Plex
+                url: https://plex.joesgarage.synology.me
+              - title: joplin
+                url: https://joplin.joesgarage.synology.me
+              - title: mealie
+                url: https://meal.joesgarage.synology.me
+              - title: freshRSS
+                url: https://rss.joesgarage.synology.me
