@@ -72,9 +72,13 @@ pages:
             sites:
               - title: Plex
                 url: https://plex.joesgarage.synology.me
+                icon: plex.png
               - title: joplin
+                icon: joplin.png
                 url: https://joplin.joesgarage.synology.me
               - title: mealie
                 url: https://meal.joesgarage.synology.me
+                icon: mealie.png
               - title: freshRSS
                 url: https://rss.joesgarage.synology.me
+                icon: freshrss.png
