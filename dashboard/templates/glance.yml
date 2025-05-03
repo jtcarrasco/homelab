@@ -51,10 +51,10 @@ pages:
             search-engine: duckduckgo
             bangs:
               - title: YouTube
-                shortcut: "!yt"
+                shortcut: "!y"
                 url: https://www.youtube.com/results?search_query={QUERY}
               - title: Github
-                shortcut: "!gh"
+                shortcut: "!g"
                 url: https://github.com/search?q={QUERY}&type=repositories
               - title: Translate
                 shortcut: "!t"
