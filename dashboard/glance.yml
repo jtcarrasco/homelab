@@ -31,19 +31,19 @@ pages:
             - links:
               - title: Blog
                 url: https://github.com/
-                icon: si:medium
+                icon: github.png
               - title: Github
                 url: https://github.com/
-                icon: si:github
+                icon: github.png
               - title: Linkedin
                 url: https://www.linkedin.com/in/
-                icon: si:lerna
+                icon: github.png
               - title: Personal Site
                 url: https://github.com/
-                icon: si:readme
+                icon: github.png
               - title: Resumes
                 url: https://github.com/
-                icon: si:reactiveresume
+                icon: github.png
 
       - size: full
         widgets:
