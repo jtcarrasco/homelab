@@ -58,44 +58,47 @@ pages:
             shortcut: "!t"
             url: https://translate.google.com/?sl=en&tl=fr&text={QUERY}&op=translate
 
-      - type: bookmarks
-        groups:
-        - title: General
-          links:
-          - title: Todoist
-            url: https://todoist.com
-          - title: Discord
-            url: https://discord.com/
-          - title: Youtube
-            url: https://youtube.com
-          - title: Pocketcasts
-            url: https://www.pocketcasts.com/
-          - title: FYF
-            url: https://mail.google.com/chat/u/0/#chat/dm/kCyscQAAAAE
-          - title: Twitch
-            url: https://twitch.com
-          - title: Github
-            url: https://www.github.com/          
-        - title: Skyrocket
-          links:
-          - title: Gmail
-            url: https://www.gmail.com/
-          - title: Managewp
-            url: https://www.managewp.com/
-          - title: ChatGPT
-            url: https://www.chatgpt.com/
-          - title: Monday
-            url: https://www.monday.com/
-          - title: Workday
-            url: https://www.myworkday.com/wday/authgwy/emspmg/login.htmld?returnTo=%2femspmg%2fd%2fhome.htmld
-        - title: Social
-          links:
-          - title: Reddit
-            url: https://www.reddit.com/
-          - title: Twitter
-            url: https://twitter.com/
-          - title: Instagram
-            url: https://www.instagram.com/            
+      - type: split-column
+        max-columns: 3
+        widgets:
+          - type: bookmarks
+            groups:
+            - title: General
+              links:
+              - title: Todoist
+                url: https://todoist.com
+              - title: Discord
+                url: https://discord.com/
+              - title: Youtube
+                url: https://youtube.com
+              - title: Pocketcasts
+                url: https://www.pocketcasts.com/
+              - title: FYF
+                url: https://mail.google.com/chat/u/0/#chat/dm/kCyscQAAAAE
+              - title: Twitch
+                url: https://twitch.com
+              - title: Github
+                url: https://www.github.com/          
+            - title: Skyrocket
+              links:
+              - title: Gmail
+                url: https://www.gmail.com/
+              - title: Managewp
+                url: https://www.managewp.com/
+              - title: ChatGPT
+                url: https://www.chatgpt.com/
+              - title: Monday
+                url: https://www.monday.com/
+              - title: Workday
+                url: https://www.myworkday.com/wday/authgwy/emspmg/login.htmld?returnTo=%2femspmg%2fd%2fhome.htmld
+            - title: Social
+              links:
+              - title: Reddit
+                url: https://www.reddit.com/
+              - title: Twitter
+                url: https://twitter.com/
+              - title: Instagram
+                url: https://www.instagram.com/            
                 
     - size: small
       widgets:
@@ -120,29 +123,24 @@ pages:
                 <span class="size-h4 color-highlight block">{{ .String "content" }}</span>
                 <ul class="list-horizontal-text">
                   {{ if .Exists "due" }}
-                    <li>📅 Due: {{ .String "due.date" }}</li>
+                    <li> Due: {{ .String "due.date" }}</li>
                   {{ else }}
-                    <li>📅 Due: No Due Date</li>
+                    <li> Due: No Due Date</li>
                   {{ end }}
-                  <li>📌 Priority: {{ .Int "priority" }}</li>
+                  <li> Priority: {{ .Int "priority" }}</li>
                 </ul>
               </li>
             {{ end }}
             </ul>
 
-  - name: Gaming
+  - name: Tech
     columns:
     - size: small
       widgets:
-        - type: twitch-top-games
-          limit: 20
-          collapse-after: 13
-          exclude:
-            - just-chatting
-            - pools-hot-tubs-and-beaches
-            - music
-            - art
-            - asmr
+        - type: reddit
+          subreddit: unixporn
+          limit: 7
+          style: vertical-cards
 
     - size: full
       widgets:
@@ -150,22 +148,30 @@ pages:
           widgets:
             - type: reddit
               show-thumbnails: true
-              subreddit: pcgaming
+              subreddit: selfhosted
             - type: reddit
-              subreddit: games
+              subreddit: archlinux
+            - type: reddit
+              subreddit: EndeavourOS
+            - type: reddit
+              subreddit: espanso
 
         - type: videos
           style: grid-cards
           collapse-after-rows: 3
           channels:
-            - UCNvzD7Z-g64bPXxGzaQaa4g # gameranx
-            - UCZ7AeeVbyslLM_8-nVy2B8Q # Skill Up
-            - UCHDxYLv8iovIbhrfl16CNyg # GameLinked
-            - UC9PBzalIcEQCsiIkq36PyUA # Digital Foundry
-
+            - UCg6gPGh8HU2U01vaFCAsvmQ # christitus
+            - UCo71RUe6DX4w-Vd47rFLXPg # typcraft
+            - UCjSEJkpGbcZhvo0lr-44X_w # techhut
+            - UCZNhwA1B5YqiY1nLzmM0ZRg # lempa
+            - UCXJ4jKAvMMg56WGhqrZHFgw # techdox
+            - UCOk-gHyjcWZNj3Br4oxwh0A # technotim
+            - UCXuqSBlHAE6Xw-yeJA0Tunw # linuxtechtips
+            - UCDC1Pas1aocEA5HBl7jp0ew # pcworld
+            - UCdBK94H6oZT2Q7l0-b0xmMg # shortcircuit
     - size: small
       widgets:
         - type: reddit
-          subreddit: gamingnews
+          subreddit: LinuxPorn
           limit: 7
           style: vertical-cards
