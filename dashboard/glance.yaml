@@ -44,15 +44,17 @@ pages:
             icon: si:qbittorrent
     - size: full
       widgets:
+      
+ 
       - type: search
         autofocus: true
         search-engine: duckduckgo
         bangs:
           - title: YouTube
-            shortcut: "!yt"
+            shortcut: "!y"
             url: https://www.youtube.com/results?search_query={QUERY}
           - title: Github
-            shortcut: "!gh"
+            shortcut: "!g"
             url: https://github.com/search?q={QUERY}&type=repositories
           - title: Translate
             shortcut: "!t"
@@ -69,14 +71,8 @@ pages:
                 url: https://todoist.com
               - title: Discord
                 url: https://discord.com/
-              - title: Youtube
-                url: https://youtube.com
-              - title: Pocketcasts
-                url: https://www.pocketcasts.com/
               - title: FYF
                 url: https://mail.google.com/chat/u/0/#chat/dm/kCyscQAAAAE
-              - title: Twitch
-                url: https://twitch.com
               - title: Github
                 url: https://www.github.com/          
             - title: Skyrocket
@@ -91,14 +87,24 @@ pages:
                 url: https://www.monday.com/
               - title: Workday
                 url: https://www.myworkday.com/wday/authgwy/emspmg/login.htmld?returnTo=%2femspmg%2fd%2fhome.htmld
-            - title: Social
+            - title: Ent
               links:
-              - title: Reddit
-                url: https://www.reddit.com/
-              - title: Twitter
-                url: https://twitter.com/
-              - title: Instagram
-                url: https://www.instagram.com/            
+              - title: Youtube
+                url: https://youtube.com
+              - title: Pocketcasts
+                url: https://www.pocketcasts.com/
+              - title: Twitch
+                url: https://twitch.com
+                
+      - type: videos
+        style: grid-cards
+        collapse-after-rows: 2
+        channels:
+          - UCPD_bxCRGpmmeQcbe2kpPaA # hot ones
+          - UCZdQjaSoLjIzFnWsDQOv4ww # la vagabonde
+          - UC4ijq8Cg-8zQKx8OH12dUSw # Kara and Nate
+          - UCMtFAi84ehTSYSE9XoHefig # Stephen Colbert
+          - UC0kKsAxDAM7erWSNUYDBw3Q # Breaking waves
                 
     - size: small
       widgets:
@@ -135,13 +141,6 @@ pages:
 
   - name: Tech
     columns:
-    - size: small
-      widgets:
-        - type: reddit
-          subreddit: unixporn
-          limit: 7
-          style: vertical-cards
-
     - size: full
       widgets:
         - type: group
@@ -155,6 +154,8 @@ pages:
               subreddit: EndeavourOS
             - type: reddit
               subreddit: espanso
+            - type: hacker-news
+            - type: lobsters
 
         - type: videos
           style: grid-cards
@@ -166,12 +167,5 @@ pages:
             - UCZNhwA1B5YqiY1nLzmM0ZRg # lempa
             - UCXJ4jKAvMMg56WGhqrZHFgw # techdox
             - UCOk-gHyjcWZNj3Br4oxwh0A # technotim
-            - UCXuqSBlHAE6Xw-yeJA0Tunw # linuxtechtips
             - UCDC1Pas1aocEA5HBl7jp0ew # pcworld
-            - UCdBK94H6oZT2Q7l0-b0xmMg # shortcircuit
-    - size: small
-      widgets:
-        - type: reddit
-          subreddit: LinuxPorn
-          limit: 7
-          style: vertical-cards
+ 
