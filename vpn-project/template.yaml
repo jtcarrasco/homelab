@@ -11,14 +11,20 @@ services:
       - 8080:8080 # QBitTorrent's User Interface
       - 6880:6880 # QBitTorrent's TCP Port
       - 6880:6880/udp # QBitTorrent's UDP Port
+      - 3000:3000 #firefox http
+      - 3001:3001 #firefox https
     volumes:
       - /volume1/docker/gluetun/config:/gluetun
     environment:
-      - VPN_SERVICE_PROVIDER=expressvpn
-
-      - SERVER_COUNTRIES=America
-      - TZ=America/Los_Angeles
+      - HTTPPROXY=on
       - UPDATER_PERIOD=24h
+      - PUID=1026
+      - PGID=100
+      - TZ=America/Los_Angeles 
+      - VPN_SERVICE_PROVIDER=expressvpn
+      - OPENVPN_USER=
+      - OPENVPN_PASSWORD=
+      - SERVER_COUNTRIES=USA
     restart: always
 
   qbittorrent:
@@ -37,3 +43,24 @@ services:
       gluetun:
         condition: service_healthy
     restart: always
+  
+  firefox:
+    image: linuxserver/firefox:latest
+    container_name: firefox
+    network_mode: "service:gluetun"
+    environment:
+      - PUID=1026
+      - PGID=100
+      - TZ=America/Los_Angeles
+    ports:
+      - 3000:3000
+      - 3001:3001
+    volumes:
+      - /volume1/docker/firefox:/confg
+    shm_size: "1gb"
+    depends_on:
+      gluetun:
+        condition: service_healthy
+    restart: unless-stopped
+
+    
