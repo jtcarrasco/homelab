@@ -30,18 +30,18 @@ pages:
           - title: Plex
             url: https://plex.joesgarage.synology.me/web/index.html#!/
             icon: si:plex
-          - title: joplin
-            url: https://joplin.joesgarage.synology.me/
-            icon: si:joplin
-          - title: mealie
-            url: https://meal.joesgarage.synology.me/
-            icon: si:mealie
           - title: freshRSS
             url: https://rss.joesgarage.synology.me
             icon: si:rss
           - title: qBittorrent # only for Linux ISOs, of course
             url: https://yourdomain.com/
             icon: si:qbittorrent
+          - title: joplin
+            url: https://joplin.joesgarage.synology.me/
+            icon: si:joplin
+          - title: mealie
+            url: https://meal.joesgarage.synology.me/
+            icon: si:mealie
     - size: full
       widgets:
       
@@ -103,41 +103,15 @@ pages:
           - UCPD_bxCRGpmmeQcbe2kpPaA # hot ones
           - UCZdQjaSoLjIzFnWsDQOv4ww # la vagabonde
           - UC4ijq8Cg-8zQKx8OH12dUSw # Kara and Nate
-          - UCMtFAi84ehTSYSE9XoHefig # Stephen Colbert
           - UC0kKsAxDAM7erWSNUYDBw3Q # Breaking waves
                 
     - size: small
       widgets:
       - type: weather
-        location: Los Angeles, California, United States
+        location: Redondo Beach, California, United States
         units: imperial
         hour-format: 12h
 
-      - type: custom-api
-        title: Todoist Tasks
-        icon: si:todoist
-        cache: 5m
-        url: https://api.todoist.com/rest/v2/tasks
-
-        headers:
-            Authorization: Bearer 5a109d580202afbd9de94df045eaa2a94bc9602b
-            Accept: application/json
-        template: |
-            <ul class="list list-gap-10 collapsible-container" data-collapse-after="5">
-            {{ range .JSON.Array "" }}
-              <li>
-                <span class="size-h4 color-highlight block">{{ .String "content" }}</span>
-                <ul class="list-horizontal-text">
-                  {{ if .Exists "due" }}
-                    <li> Due: {{ .String "due.date" }}</li>
-                  {{ else }}
-                    <li> Due: No Due Date</li>
-                  {{ end }}
-                  <li> Priority: {{ .Int "priority" }}</li>
-                </ul>
-              </li>
-            {{ end }}
-            </ul>
 
   - name: Tech
     columns:
@@ -148,14 +122,6 @@ pages:
             - type: reddit
               show-thumbnails: true
               subreddit: selfhosted
-            - type: reddit
-              subreddit: archlinux
-            - type: reddit
-              subreddit: EndeavourOS
-            - type: reddit
-              subreddit: espanso
-            - type: hacker-news
-            - type: lobsters
 
         - type: videos
           style: grid-cards
@@ -167,4 +133,43 @@ pages:
             - UCZNhwA1B5YqiY1nLzmM0ZRg # lempa
             - UCXJ4jKAvMMg56WGhqrZHFgw # techdox
             - UCOk-gHyjcWZNj3Br4oxwh0A # technotim
+  - name: Gaming
+    columns:
+    - size: small
+      widgets:
+        - type: twitch-top-games
+          limit: 20
+          collapse-after: 13
+          exclude:
+            - just-chatting
+            - pools-hot-tubs-and-beaches
+            - music
+            - art
+            - asmr
+
+    - size: full
+      widgets:
+        - type: group
+          widgets:
+            - type: reddit
+              show-thumbnails: true
+              subreddit: pcgaming
+            - type: reddit
+              subreddit: games
+
+        - type: videos
+          style: grid-cards
+          collapse-after-rows: 3
+          channels:
+            - UCNvzD7Z-g64bPXxGzaQaa4g # gameranx
+            - UCZ7AeeVbyslLM_8-nVy2B8Q # Skill Up
+            - UCHDxYLv8iovIbhrfl16CNyg # GameLinked
+            - UC9PBzalIcEQCsiIkq36PyUA # Digital Foundry
+
+    - size: small
+      widgets:
+        - type: reddit
+          subreddit: gamingnews
+          limit: 7
+          style: vertical-cards
  
