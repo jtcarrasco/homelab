@@ -1,0 +1,79 @@
+version: "3"
+services:
+  gluetun:
+    image: qmcgaw/gluetun:latest
+    container_name: gluetun
+    restart: always
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    ports:
+      - 6881:6881 # qbt
+      - 6881:6881/udp # qbt
+      - 9866:9866 # qbt
+      - 8686:8686 # lidarr
+      - 9696:9696 # Prowlarr
+    environment:
+      # See https://github.com/qdm12/gluetun-wiki/tree/main/setup#setup
+      - VPN_SERVICE_PROVIDER=vpnprovider
+      - OPENVPN_USER=USER
+      - OPENVPN_PASSWORD=PASSWORD
+    volumes:
+      - /volume1/docker/arr-stack/gluetun:/gluetun
+
+  qbittorrent-vue:
+    container_name: qBittorrent-VUE
+    image: ghcr.io/linuxserver/qbittorrent
+    healthcheck:
+      test: curl -f http://localhost:9866/ || exit 1
+    mem_limit: 6g
+    cpu_shares: 768
+    tty: true
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    network_mode: service:gluetun
+    environment:
+      WEBUI_PORT: 9866
+      PUID: 1026
+      PGID: 100
+      TZ: America/Los_Angeles
+      DOCKER_MODS: ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest
+    volumes:
+      - /volume1/docker/arr-stack/qbittorrent-vue/config:/config:rw
+      - /volume1/data/downloads/qbt/torrents:/downloads:rw
+
+  lidarr:
+    image: ghcr.io/linuxserver/lidarr:latest
+    container_name: lidarr
+    healthcheck:
+      test: curl -f http://localhost:8686/ || exit 1
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    network_mode: service:gluetun
+    environment:
+      TZ: America/Los_Angeles
+      PGID: 100
+      PUID: 1026
+    volumes:
+      - /volume1/data/media/music:/music:rw
+      - /volume1/data/downloads/qbt/torrents:/downloads:rw
+      - /volume1/docker/arr-stack/lidarr/config:/config:rw
+
+  prowlarr:
+    image: ghcr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    healthcheck:
+      test: curl -f http://localhost:9696/ || exit 1
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    network_mode: service:gluetun
+    environment:
+      TZ: America/Los_Angeles
+      PGID: 100
+      PUID: 1026
+    volumes:
+      - /volume1/docker/arr-stack/prowlarr:/config:rw

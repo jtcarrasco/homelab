@@ -1,0 +1,25 @@
+services:
+  onlyoffice:
+    container_name: OnlyOffice
+    hostname: onlyoffice
+    image: onlyoffice/documentserver:latest
+    healthcheck:
+      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/80' || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    ports:
+      - 8467:80
+    environment:
+      JWT_ENABLED: true
+      JWT_SECRET: q9TAW5pK5O9DqAWhY18XupmtlZk0ULRmjroiZcfvJkvZduSYzrzc0FtM2yfHEeyB
+    volumes:
+      - /volume1/docker/onlyoffice/logs:/var/log/onlyoffice:rw
+      - /volume1/docker/onlyoffice/data:/var/www/onlyoffice/Data:rw
+      - /volume1/docker/onlyoffice/redis:/var/lib/redis:rw
+      - /volume1/docker/onlyoffice/rabbitmq:/var/lib/rabbitmq:rw
+      - /volume1/docker/onlyoffice/lib:/var/lib/onlyoffice:rw
+      - /volume1/docker/onlyoffice/fonts:/usr/share/fonts/truetype/custom:rw
+      - /volume1/docker/onlyoffice/database:/var/lib/postgresql:rw
+    restart: on-failure:5
