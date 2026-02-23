@@ -1,27 +1,27 @@
 services:
-  digiKam:
-    container_name: digiKam
-    image: ghcr.io/linuxserver/digikam
-    healthcheck:
-      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/3000' || exit 1
-      interval: 10s
-      timeout: 5s
-      retries: 3
-      start_period: 90s  
-    security_opt:
-      - no-new-privileges:false
-      - seccomp:unconfined
-    ports:
-      - 3050:3000
-      - 3051:3001
-    volumes:
-      - /volume1/docker/digikam:/config:rw
-      - /volume1/data/media/photos:/photos:rw
-    environment:
-     CUSTOM_USER: jtcarrasco
-     PASSWORD: RRZNr22T2MCvizmRaPM4
-     TZ: America/Los_Angeles
-     PUID: 1026
-     PGID: 100
-     KEYBOARD: en-us-qwerty
-    restart: on-failure:5
+    digiKam:
+        container_name: digiKam
+        image: ghcr.io/linuxserver/digikam
+        healthcheck:
+            test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/3000' || exit 1
+            interval: 10s
+            timeout: 5s
+            retries: 3
+            start_period: 90s
+        security_opt:
+            - no-new-privileges:false
+            - seccomp:unconfined
+        ports:
+            - 3050:3000
+            - 3051:3001
+        volumes:
+            - /volume1/docker/digikam:/config:rw
+            - /volume1/data/media/photos:/photos:rw
+        environment:
+            CUSTOM_USER: USER
+            PASSWORD: PASSWORD
+            TZ: America/Los_Angeles
+            PUID: 1026
+            PGID: 100
+            KEYBOARD: en-us-qwerty
+        restart: on-failure:5
