@@ -1,0 +1,140 @@
+server:
+    port: 8080
+
+theme:
+    background-color: 240 27 11
+    contrast-multiplier: 1.5
+    primary-color: 321 100 71
+    positive-color: 165 78 51
+    negative-color: 360 100 71
+
+pages:
+    - name: Home
+      columns:
+          - size: small
+            widgets:
+                - type: clock
+                  hour-format: 12h
+                - type: server-stats
+                  servers:
+                      - type: local
+                        name: VPS
+                - type: bookmarks
+                  groups:
+                      - title: Work
+                        color: 150 70 50
+                        links:
+                            - title: Todoist
+                              url: https://todoist.com/
+                            - title: Discord
+                              url: https://www.discord.com/
+                            - title: LinkedIn
+                              url: https://www.linkedin.com/
+                            - title: ManageWP
+                              url: https://managewp.com/
+                            - title: Github
+                              url: https://github.com/
+                      - title: Homelab
+                        color: 10 20 50
+                        links:
+                            - title: Tailscale
+                              url: https://login.tailscale.com/
+                            - title: Joesgarage
+                              url: https://joesgarage.synology.me/
+                      - title: Entertainment
+                        color: 10 70 50
+                        links:
+                            - title: YouTube
+                              url: https://www.youtube.com/
+                            - title: Pocketcasts
+                              url: https://www.pocketcasts.com/
+                            - title: Libby
+                              url: https://www.libbyapp.com/
+                      - title: Social
+                        color: 200 50 50
+                        links:
+                            - title: Reddit
+                              url: https://www.reddit.com/
+                            - title: Facebook
+                              url: https://www.facebook.com/
+                            - title: Instagram
+                              url: https://www.instagram.com/
+
+          - size: full
+            widgets:
+                - type: search
+                  search-engine: duckduckgo
+                  new-tab: true
+                  bangs:
+                      - title: YouTube
+                        shortcut: "!yt"
+                        url: https://www.youtube.com/results?search_query={QUERY}
+                      - title: GitHub
+                        shortcut: "!gh"
+                        url: https://github.com/search?q={QUERY}
+                - type: monitor
+                  cache: 1m
+                  title: Services
+                  sites:
+                      - title: FreshRss
+                        url: https://yellowshark.tail35225b.ts.net:9009/i/
+                        icon: si:freshrss
+                      - title: Plex
+                        url: https://plex.joesgarage.synology.me
+                        icon: si:plex
+                      - title: Immich
+                        url: https://immich.yourdomain.com
+                        icon: si:immich
+                      - title: Docmost
+                        url: https://notion.yourdomain.com
+                        icon: si:notion
+                - type: group
+                  widgets:
+                      - type: videos
+                        title: Tech
+                        style: grid-cards
+                        collapse-after-rows: 3
+                        channels:
+                            - UCjSEJkpGbcZhvo0lr-44X_w #techhut
+                            - UCyU5wkjgQYGRB0hIHMwm2Sg #syntax
+                            - UCg6gPGh8HU2U01vaFCAsvmQ #Chris Titus
+                            - UCJa14zeVf8p6clixTOIOVyQ #jakkuh
+                            - UC4NNPgQ9sOkBjw6GlkgCylg #Ben Vallack
+                            - UCo-RDlyRDeQ3ZrBK9w6tmGw #The Full Nerd
+                            - UCo71RUe6DX4w-Vd47rFLXPg #typecraft
+                      - type: videos
+                        title: Travel
+                        style: grid-cards
+                        collapse-after-rows: 3
+                        channels:
+                            - UCZdQjaSoLjIzFnWsDQOv4ww #Sailing La Vagabonde
+                            - UC4ijq8Cg-8zQKx8OH12dUSw #Kara and Nate
+                            - UCvLc83k5o11EIF1lEo0VmuQ #Sailing SV Delos
+
+          - size: small
+            widgets:
+                - type: calendar
+                - type: weather
+                  location: Redondo Beach, United States
+                  units: imperial
+                  hour-format: 12h
+
+                - type: markets
+                  title: Indices
+                  markets:
+                      - symbol: SPY
+                        name: S&P 500
+                      - symbol: QQQ
+                        name: NASDAQ
+                - type: markets
+                  title: Stocks
+                  sort-by: absolute-change
+                  markets:
+                      - symbol: NVDA
+                        name: NVIDIA
+                      - symbol: AAPL
+                        name: Apple
+                      - symbol: MSFT
+                        name: Microsoft
+                      - symbol: GOOGL
+                        name: Google

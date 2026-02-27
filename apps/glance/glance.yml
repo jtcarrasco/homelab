@@ -1,0 +1,20 @@
+services:
+    glance:
+        image: glanceapp/glance:latest
+        container_name: Glance
+        hostname: glance
+        mem_limit: 512m
+        cpu_shares: 512
+        security_opt:
+            - no-new-privileges:true
+        volumes:
+            - ./config:/app/config:ro
+        environment:
+            TZ: America/Los_Angeles
+        restart: on-failure:5
+        networks:
+            - proxy-net
+
+networks:
+    proxy-net:
+        external: true
